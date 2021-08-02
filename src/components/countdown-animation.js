@@ -84,7 +84,7 @@ function CountdownAnimation(props) {
 			</div>
 			<div className={styles["countdown-wrapper"]}>
 				<Countdown
-					key={makeid(10)}
+					key={timerStore}
 					duration={timerStore.activeDuration}
 					animate={timerStore.animate}
 				></Countdown>

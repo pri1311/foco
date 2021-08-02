@@ -1,13 +1,13 @@
 import constants from "./constants";
 
 const initialState = {
-	duration: 0.1,
-	shortBreak: 0.1,
-	longBreak: 0.1,
+	duration: 25,
+	shortBreak: 5,
+	longBreak: 15,
 	active: "duration",
 	animate: false,
 	streak: 0,
-	activeDuration: 0.1,
+	activeDuration: 25,
 };
 
 const pomodoroReducer = (prevState = initialState, action) => {

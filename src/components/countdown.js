@@ -32,8 +32,12 @@ export default function Countdown(props) {
 			size={200}
 			trailColor="#151932"
 			onComplete={() => {
-				soundPlay("/src/assetsaudio/Notification.mp3");
-				dispatch(stopPomodoro());
+				soundPlay(
+					"https://github.com/pri1311/foco/blob/master/src/assets/audio/Notification.mp3?raw=true",
+				);
+				setTimeout(() => {
+					dispatch(stopPomodoro());
+				}, 2000);
 			}}
 		>
 			{/* {props.children} */}
