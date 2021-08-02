@@ -2,11 +2,22 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { stopPomodoro } from "../redux/actions";
+import { Howl } from "howler";
 
 export default function Countdown(props) {
 	console.log(props.duration);
 	const dispatch = useDispatch();
 	const timerStore = useSelector((state) => state);
+
+	var soundPlay = (src) => {
+		console.log("playing sound");
+		const sound = new Howl({
+			src,
+			html5: true,
+		});
+		sound.play();
+	};
+
 	return (
 		<CountdownCircleTimer
 			isPlaying={timerStore["animate"]}
@@ -21,6 +32,7 @@ export default function Countdown(props) {
 			size={200}
 			trailColor="#151932"
 			onComplete={() => {
+				soundPlay("/src/assetsaudio/Notification.mp3");
 				dispatch(stopPomodoro());
 			}}
 		>

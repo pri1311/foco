@@ -1,13 +1,13 @@
 import constants from "./constants";
 
 const initialState = {
-	duration: 25,
-	shortBreak: 5,
-	longBreak: 15,
+	duration: 0.1,
+	shortBreak: 0.1,
+	longBreak: 0.1,
 	active: "duration",
 	animate: false,
 	streak: 0,
-	activeDuration: 25,
+	activeDuration: 0.1,
 };
 
 const pomodoroReducer = (prevState = initialState, action) => {
@@ -47,28 +47,40 @@ const pomodoroReducer = (prevState = initialState, action) => {
 						...prevState,
 						active: "duration",
 						animate: true,
+						activeDuration: prevState["duration"],
 					};
 				case "shortBreak":
 					return {
 						...prevState,
 						active: "duration",
 						animate: true,
+						activeDuration: prevState["duration"],
 					};
 				case "duration":
-					var streak = prevState.streak;
-					streak += 1;
-					if (streak % 3 === 0) {
+					if ((prevState.streak + 1) % 3 === 0) {
 						return {
 							...prevState,
 							active: "longBreak",
-							animate: false,
+							animate: true,
+							streak: prevState.streak + 1,
+							activeDuration: prevState["longBreak"],
 						};
 					}
-					if (streak === 4) streak = 0;
+					if (prevState.streak + 1 === 4) {
+						return {
+							...prevState,
+							streak: 0,
+							active: "shortBreak",
+							animate: true,
+							activeDuration: prevState["shortBreak"],
+						};
+					}
 					return {
 						...prevState,
+						streak: prevState.streak + 1,
 						active: "shortBreak",
 						animate: true,
+						activeDuration: prevState["shortBreak"],
 					};
 				default:
 					return {
