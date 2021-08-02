@@ -9,6 +9,7 @@ foco is a customizable pomodoro timer that works on desktop & mobile browser. Th
 `Features`
 
 -   [x] Customizable time intervals to suit user preferences.
+-   [x] Add random motivational quote to home page
 -   [x] Audio notifications.
 -   [ ] Add tasks/todos with priority.
 -   [ ] Show Pomodoro history and stats.
