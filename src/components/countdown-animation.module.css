@@ -1,0 +1,23 @@
+.countdown-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 15rem;
+	width: 15rem;
+	border-radius: 7.5rem;
+	color: #efefef;
+	background: #151932;
+	font-size: 3.5rem;
+	box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, 0.6);
+}
+
+button {
+	margin: 1rem auto;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	border: none;
+	outline: none;
+	background-color: #0c0e1b;
+	color: #c9ccea;
+	margin: 0.75rem 0.2rem;
+}

@@ -1,15 +1,16 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Button from "./button";
 import styles from "./set-pomodoro.module.css";
 
+import { setTimerStore } from "../redux/actions";
+
 const SetPomodoro = () => {
-	const [timer, setTimer] = useState({
-		duration: 25,
-		shortBreak: 5,
-		longBreak: 15,
-		active: "duration",
-	});
+	const dispatch = useDispatch();
+	const timerStore = useSelector((state) => state);
+
+	const [timer, setTimer] = useState(timerStore);
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -37,7 +38,10 @@ const SetPomodoro = () => {
 		}
 	};
 
-	const handleSubmit = () => {};
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		dispatch(setTimerStore(timer));
+	};
 
 	return (
 		<div>
