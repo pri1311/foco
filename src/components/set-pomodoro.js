@@ -6,7 +6,7 @@ import styles from "./set-pomodoro.module.css";
 
 import { setTimerStore } from "../redux/actions";
 
-const SetPomodoro = () => {
+const SetPomodoro = (props) => {
 	const dispatch = useDispatch();
 	const timerStore = useSelector((state) => state);
 
@@ -40,6 +40,7 @@ const SetPomodoro = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		props.setShowSetTimer(false);
 		dispatch(setTimerStore(timer));
 	};
 

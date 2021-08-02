@@ -5,7 +5,7 @@ const initialState = {
 	shortBreak: 5,
 	longBreak: 15,
 	active: "duration",
-	animate: true,
+	animate: false,
 	streak: 0,
 	activeDuration: 25,
 };
@@ -80,6 +80,11 @@ const pomodoroReducer = (prevState = initialState, action) => {
 			return {
 				...prevState,
 				animate: false,
+			};
+		case constants.RESUME_TIMER:
+			return {
+				...prevState,
+				animate: true,
 			};
 		default:
 			return prevState;

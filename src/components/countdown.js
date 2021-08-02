@@ -18,7 +18,7 @@ export default function Countdown(props) {
 				["#FE6F6B", 0.33],
 			]}
 			strokeWidth={6}
-			size={180}
+			size={200}
 			trailColor="#151932"
 			onComplete={() => {
 				dispatch(stopPomodoro());

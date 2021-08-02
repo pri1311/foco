@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
 	pausePomodoro,
-	stopPomodoro,
+	resumePomodoro,
 	startLongBreak,
 	startShortBreak,
+	startPomodoro,
 } from "../redux/actions";
 
 import Countdown from "./countdown";
@@ -23,6 +24,16 @@ function CountdownAnimation(props) {
 		dispatch(pausePomodoro());
 	};
 
+	const handleResumeTimer = (e) => {
+		e.preventDefault();
+		dispatch(resumePomodoro());
+	};
+
+	const handleStartPomodoro = (e) => {
+		e.preventDefault();
+		dispatch(startPomodoro());
+	};
+
 	const handleStartShortBreak = (e) => {
 		e.preventDefault();
 		dispatch(startShortBreak());
@@ -35,6 +46,29 @@ function CountdownAnimation(props) {
 
 	return (
 		<Fragment>
+			<div className={styles.buttonWrapper}>
+				<Button
+					activeClass={
+						timerStore.active === "duration" ? "active" : ""
+					}
+					title="Start Pomodoro"
+					callback={handleStartPomodoro}
+				/>
+				<Button
+					activeClass={
+						timerStore.active === "shortBreak" ? "active" : ""
+					}
+					title="Start Short Break"
+					callback={handleStartShortBreak}
+				/>
+				<Button
+					activeClass={
+						timerStore.active === "longBreak" ? "active" : ""
+					}
+					title="Start Long Break"
+					callback={handleStartLongBreak}
+				/>
+			</div>
 			<div className={styles["countdown-wrapper"]}>
 				<Countdown
 					key={timerStore.activeDuration}
@@ -42,16 +76,9 @@ function CountdownAnimation(props) {
 					animate={timerStore.animate}
 				></Countdown>
 			</div>
-			<div>
+			<div className={styles.buttonGroup}>
 				<Button title="Pause Timer" callback={handlePauseTimer} />
-				<Button
-					title="Start Short Break"
-					callback={handleStartShortBreak}
-				/>
-				<Button
-					title="Start Long Break"
-					callback={handleStartLongBreak}
-				/>
+				<Button title="Resume Timer" callback={handleResumeTimer} />
 			</div>
 		</Fragment>
 	);

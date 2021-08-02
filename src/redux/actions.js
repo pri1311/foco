@@ -25,6 +25,12 @@ export const pausePomodoro = () => {
 	};
 };
 
+export const resumePomodoro = () => {
+	return {
+		type: constants.RESUME_TIMER,
+	};
+};
+
 export const startLongBreak = () => {
 	return {
 		type: constants.START_LONG_BREAK,

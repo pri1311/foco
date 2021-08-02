@@ -11,7 +11,10 @@
 	box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, 0.6);
 }
 
-button {
+.buttonWrapper,
+.buttonGroup button,
+.buttonWrapper button,
+.primary {
 	margin: 1rem auto;
 	padding: 1rem;
 	border-radius: 0.5rem;
@@ -20,4 +23,25 @@ button {
 	background-color: #0c0e1b;
 	color: #c9ccea;
 	margin: 0.75rem 0.2rem;
+}
+
+.buttonWrapper {
+	padding: 0.5rem 1rem;
+	border-radius: 2rem;
+}
+
+.buttonWrapper button {
+	margin: 0.2rem;
+	padding: 0.5rem;
+}
+
+.active {
+	margin: 0.2rem;
+	padding: 0;
+	background-color: #fe6f6b;
+	outline: none;
+	border: none;
+	padding: 0.5rem;
+	border-radius: 1rem;
+	/* color: white; */
 }
