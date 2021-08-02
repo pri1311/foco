@@ -1,3 +1,21 @@
+#foco
+
+foco is a customizable pomodoro timer that works on desktop & mobile browser. The aim of this app is to help you focus on any task you are working on, such as study, writing, or coding. This app is inspired by Pomodoro Technique which is a time management method developed by Francesco Cirillo.
+
+`Features`
+[x] Customizable time intervals to suit user preferences.
+[] Audio notifications.
+[] Add tasks/todos with priority.
+[] Show Pomodoro history and stats.
+[] Enable email login to access data across different devices.
+[] Provide color themes to switch moods between work time and rest time and for better user experience.
+
+`Tech Stack`
+ReactJs
+NodeJs
+ExpressJs
+MongoDB
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
